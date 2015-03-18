@@ -22,7 +22,7 @@ public class FileInput {
     }
 
     public static void main(String[] args)throws IOException{
-        leerArchivo("/src/edu/poli/automatas/input/DocumentoEntrada.txt");
+        leerArchivo("src/edu/poli/automatas/input/DocumentoEntrada.txt");
     }
 
 
