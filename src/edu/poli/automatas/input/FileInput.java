@@ -11,14 +11,15 @@ import java.io.IOException;
 public class FileInput {
 
     public static void leerArchivo(String archivo)throws FileNotFoundException,IOException {
-        String datos ;
-        FileReader f = new FileReader(archivo);
-        BufferedReader b = new BufferedReader(f);
-
-        while((datos = b.readLine())!=null){
-            System.out.print(datos);
-        }
-        b.close();
+        System.out.print("fsdgsdf");
+//        String datos ;
+//        FileReader f = new FileReader(archivo);
+//        BufferedReader b = new BufferedReader(f);
+//
+//        while((datos = b.readLine())!=null){
+//            System.out.print(datos);
+//        }
+//        b.close();
     }
 
     public static void main(String[] args)throws IOException{
