@@ -1,5 +1,7 @@
 package edu.poli.automatas.logica;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -11,9 +13,9 @@ public class Estado {
     private String nombre;
     private boolean inicial;
     private boolean aceptacion;
-    private TreeSet<Transicion> transiciones;
+    private HashSet<Transicion> transiciones;
 
-    public Estado(String nombre, TreeSet<Transicion> transiciones, boolean inicial, boolean aceptacion) {
+    public Estado(String nombre, HashSet<Transicion> transiciones, boolean inicial, boolean aceptacion) {
         this.nombre = nombre;
         this.transiciones = transiciones;
         this.inicial = inicial;
@@ -40,7 +42,7 @@ public class Estado {
         return transiciones;
     }
 
-    public void setTransiciones(TreeSet<Transicion> transiciones) {
+    public void setTransiciones(HashSet<Transicion> transiciones) {
         this.transiciones = transiciones;
     }
 
@@ -67,6 +69,16 @@ public class Estado {
         }
         return transicionSeleccionada;
     }
+
+//    @Override
+//    public String toString() {
+//        return "Estado{" +
+//                "nombre='" + nombre + '\'' +
+//                ", inicial=" + inicial +
+//                ", aceptacion=" + aceptacion +
+//                ", transiciones=" + transiciones +
+//                '}';
+//    }
 
     /**
      * Agrega una transición al conjunto de transiciones del estado

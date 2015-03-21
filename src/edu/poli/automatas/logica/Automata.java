@@ -87,8 +87,28 @@ public class Automata {
         return estadoEncontrado;
     }
 
-    public String simulacion() {
-       return null;
+    public String simulacion(String cadena) {
+        String resultado = "";
+        Estado estadoActual = this.darEstadoInicial();
+        if(cadena.isEmpty())
+            resultado += "La cadena \""+cadena+"\" no pertenece al lenguaje L.\n\n";
+        else {
+            for (int i = 0; i < cadena.length(); i++) {
+                Transicion transicion = estadoActual.darTransacion(String.valueOf(cadena.charAt(i)));
+                if (transicion == null) {
+                    estadoActual = null;
+                    break;
+                } else {
+                    resultado += "(" + estadoActual.getNombre() + "," + transicion.getSimbolo() + ") => " + transicion.getEstado().getNombre() + "\n";
+                    estadoActual = transicion.getEstado();
+                }
+            }
+            if (estadoActual != null && estadoActual.isAceptacion())
+                resultado += "La cadena \"" + cadena + "\" pertenece al lenguaje L.\n\n";
+            else
+                resultado += "La cadena \"" + cadena + "\" no pertenece al lenguaje L.\n\n";
+        }
+        return resultado;
     }
 
 }

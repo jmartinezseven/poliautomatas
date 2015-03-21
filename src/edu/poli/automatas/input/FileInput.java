@@ -26,7 +26,7 @@ public class FileInput {
             List<Estado> estados = new ArrayList<Estado>();
             String[] estadosArray = reader.readLine().split(",");
             for(String estadoString: estadosArray){
-                Estado estado = new Estado(estadoString, new TreeSet<Transicion>(), false, false);
+                Estado estado = new Estado(estadoString, new HashSet<Transicion>(), false, false);
                 estados.add(estado);
             }
             automata.setEstados(estados);
@@ -45,9 +45,18 @@ public class FileInput {
                 transicion.setEstado(estadoDestino);
                 estado.agregarTransicion(transicion);
             }
+
+            StringBuffer resultadoSimulacion = new StringBuffer();
+            resultadoSimulacion.append("Lenguaje L: " + descripcion + "\n\n");
+            int cadenasLenguaje = Integer.parseInt(reader.readLine());
+            for(int i = 0; i < cadenasLenguaje; i++) {
+                String cadenaAutomata = reader.readLine();
+                resultadoSimulacion.append("Procesando cadena "+i+": \""+cadenaAutomata + "\"\n");
+                String simulaionEjecutada = automata.simulacion(cadenaAutomata);
+                resultadoSimulacion.append(simulaionEjecutada);
+            }
+            System.out.print(resultadoSimulacion.toString());
+            line = reader.readLine();
         }
     }
-
-
-
 }

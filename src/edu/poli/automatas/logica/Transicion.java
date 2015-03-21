@@ -22,6 +22,14 @@ public class Transicion {
     }
 
     @Override
+    public String toString() {
+        return "Transicion{" +
+                "simbolo='" + simbolo + '\'' +
+                ", estado=" + estado +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Transicion)) return false;
