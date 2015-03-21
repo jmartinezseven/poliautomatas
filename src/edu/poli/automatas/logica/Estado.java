@@ -67,4 +67,12 @@ public class Estado {
         }
         return transicionSeleccionada;
     }
+
+    /**
+     * Agrega una transición al conjunto de transiciones del estado
+     * @param transicion
+     */
+    public void agregarTransicion(Transicion transicion) {
+        transiciones.add(transicion);
+    }
 }
