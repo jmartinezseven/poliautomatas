@@ -72,11 +72,15 @@ public class Estado {
 
 //    @Override
 //    public String toString() {
+//        StringBuffer transiciones = new StringBuffer();
+//        for(Transicion transicion: getTransiciones()){
+//            transiciones.append(transicion.toString() + "\n");
+//        }
 //        return "Estado{" +
-//                "nombre='" + nombre + '\'' +
-//                ", inicial=" + inicial +
-//                ", aceptacion=" + aceptacion +
-//                ", transiciones=" + transiciones +
+//                "nombre=" + nombre +
+//                ", inicial =" + inicial +
+//                ", aceptacion =" + aceptacion +
+//                ", transiciones = " + transiciones.toString()+
 //                '}';
 //    }
 

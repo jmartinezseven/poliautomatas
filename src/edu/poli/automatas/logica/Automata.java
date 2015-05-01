@@ -60,10 +60,10 @@ public class Automata {
      * Retorna el estado inicial del automata
      * @return
      */
-    private Estado darEstadoInicial() {
+    public Estado darEstadoInicial() {
         Estado inicial = null;
         for(Estado estado : estados){
-            if(estado.isAceptacion()){
+            if(estado.isInicial()){
                 inicial = estado;
                 break;
             }
@@ -85,6 +85,36 @@ public class Automata {
             }
         }
         return estadoEncontrado;
+    }
+
+    @Override
+    public String toString() {
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append("Descripción --> " + this.descripcion + "\n");
+        stringBuffer.append("Alfabeto --> " + this.alfabeto + "\n");
+        stringBuffer.append("Estados --> " + "\n" );
+        for(Estado estado : estados){
+            stringBuffer.append(" { " + "\n");
+            stringBuffer.append("  Nombre -> " + estado.getNombre() + "\n");
+            stringBuffer.append("  Es inicial -> " + estado.isInicial() + "\n");
+            stringBuffer.append("  Es aceptacion -> " + estado.isAceptacion() + "\n");
+            stringBuffer.append("  Transiciones ->\n");
+            for(Transicion transicion:estado.getTransiciones()){
+                stringBuffer.append("   { " + "\n");
+                stringBuffer.append("    Simbolo -> " + transicion.getSimbolo() + "\n");
+                stringBuffer.append("    Estado destino -> " + transicion.getEstado().getNombre() + "\n");
+                stringBuffer.append("   } " + "\n");
+            }
+            stringBuffer.append(" } " + "\n");
+        }
+        return stringBuffer.toString();
+    }
+
+    public void limpiarEstados(){
+        for(Estado estado: estados){
+            estado.setInicial(false);
+            estado.setAceptacion(false);
+        }
     }
 
     public String simulacion(String cadena) {

@@ -1,0 +1,21 @@
+Cadenas binarias de longitud par
+01
+par,impar
+par
+par
+4
+par,0,impar
+par,1,impar
+impar,0,par
+impar,1,par
+Cadenas binarias con numero impar de unos
+01
+par,impar
+par
+impar
+4
+par,0,par
+par,1,impar
+impar,0,impar
+impar,1,par
+
