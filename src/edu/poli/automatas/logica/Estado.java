@@ -6,7 +6,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 /**
- * Created by juanmartinez on 20/03/15.
+ * Created by Juan Sebastian Martinez, Esteban Bautista Clavijo on 18/03/2015.
  */
 public class Estado {
 

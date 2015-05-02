@@ -8,7 +8,7 @@ import java.io.*;
 import java.util.*;
 
 /**
- * Created by jsmartinez on 18/03/2015.
+ * Created by Juan Sebastian Martinez, Esteban Bautista Clavijo on 18/03/2015.
  */
 public class UnionInterseccionAutomatas {
 
