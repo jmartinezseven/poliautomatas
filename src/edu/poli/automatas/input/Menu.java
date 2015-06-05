@@ -11,10 +11,10 @@ public class Menu {
 
     public static void main(String[] args) {
 
-//        try {
-//            new UnionInterseccionAutomatas().unionInterseccionEjercicio();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        try {
+            new UnionInterseccionAutomatas().unionInterseccionEjercicio();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -102,7 +102,7 @@ public class AutomataND {
             stringBuffer.append("  Es inicial -> " + estado.isInicial() + "\n");
             stringBuffer.append("  Es aceptacion -> " + estado.isAceptacion() + "\n");
             stringBuffer.append("  Transiciones ->\n");
-            for(Transicion transicion:estado.getTransiciones()){
+            for(TransicionAFN transicion:estado.getTransiciones()){
                 stringBuffer.append("   { " + "\n");
                 stringBuffer.append("    Simbolo -> " + transicion.getSimbolo() + "\n");
                 stringBuffer.append("    Estado destino -> " + transicion.getEstado().getNombre() + "\n");

@@ -27,9 +27,9 @@ public class AFNaADF {
 
     }
 
-    private Estado darCerraduraEpsilonInicial(Estado estadoInicial) {
-
-    }
+//    private Estado darCerraduraEpsilonInicial(Estado estadoInicial) {
+//
+//    }
 
     /**
      * Calcula la cerradura epsilon de una lista de estados
