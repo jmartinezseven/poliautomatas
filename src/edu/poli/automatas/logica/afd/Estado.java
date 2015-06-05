@@ -1,9 +1,7 @@
-package edu.poli.automatas.logica;
+package edu.poli.automatas.logica.afd;
 
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.TreeSet;
 
 /**
  * Created by Juan Sebastian Martinez, Esteban Bautista Clavijo on 18/03/2015.

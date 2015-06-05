@@ -1,8 +1,8 @@
 package edu.poli.automatas.input;
 
-import edu.poli.automatas.logica.Automata;
-import edu.poli.automatas.logica.Estado;
-import edu.poli.automatas.logica.Transicion;
+import edu.poli.automatas.logica.afd.Automata;
+import edu.poli.automatas.logica.afd.Estado;
+import edu.poli.automatas.logica.afd.Transicion;
 
 import java.io.*;
 import java.util.*;

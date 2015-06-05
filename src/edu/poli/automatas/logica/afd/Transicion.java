@@ -1,4 +1,4 @@
-package edu.poli.automatas.logica;
+package edu.poli.automatas.logica.afd;
 
 public class Transicion {
 

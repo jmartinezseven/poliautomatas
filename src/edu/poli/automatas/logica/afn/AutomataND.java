@@ -1,15 +1,18 @@
-package edu.poli.automatas.logica;
+package edu.poli.automatas.logica.afn;
+
+import edu.poli.automatas.logica.afd.Estado;
+import edu.poli.automatas.logica.afd.Transicion;
 
 import java.util.List;
 
 /**
- * Created by Juan Sebastian Martinez, Esteban Bautista Clavijo on 18/03/2015.
+ * Created by juanmartinez on 5/06/15.
  */
-public class Automata {
+public class AutomataND {
 
     private String descripcion;
     private String alfabeto;
-    private List<Estado> estados;
+    private List<EstadoAFN> estados;
 
     public String getDescripcion() {
         return descripcion;
@@ -27,11 +30,11 @@ public class Automata {
         this.alfabeto = alfabeto;
     }
 
-    public List<Estado> getEstados() {
+    public List<EstadoAFN> getEstados() {
         return estados;
     }
 
-    public void setEstados(List<Estado> estados) {
+    public void setEstados(List<EstadoAFN> estados) {
         this.estados = estados;
     }
 
@@ -41,7 +44,7 @@ public class Automata {
      * @param estadosAceptaion
      */
     public void definirEstadosInicialYAcepacion(String estadoInicial, List<String> estadosAceptaion) {
-        for(Estado estado: estados) {
+        for(EstadoAFN estado: estados) {
             String nombre = estado.getNombre();
             if(nombre.equals(estadoInicial)) {
                 estado.setInicial(true);
@@ -60,9 +63,9 @@ public class Automata {
      * Retorna el estado inicial del automata
      * @return
      */
-    public Estado darEstadoInicial() {
-        Estado inicial = null;
-        for(Estado estado : estados){
+    public EstadoAFN darEstadoInicial() {
+        EstadoAFN inicial = null;
+        for(EstadoAFN estado : estados){
             if(estado.isInicial()){
                 inicial = estado;
                 break;
@@ -76,9 +79,9 @@ public class Automata {
      * @param nombre
      * @return
      */
-    public Estado darEstadoPorNombre(String nombre) {
-        Estado estadoEncontrado = null;
-        for(Estado estado: estados) {
+    public EstadoAFN darEstadoPorNombre(String nombre) {
+        EstadoAFN estadoEncontrado = null;
+        for(EstadoAFN estado: estados) {
             if(estado.getNombre().equals(nombre)) {
                 estadoEncontrado = estado;
                 break;
@@ -93,7 +96,7 @@ public class Automata {
         stringBuffer.append("Descripción --> " + this.descripcion + "\n");
         stringBuffer.append("Alfabeto --> " + this.alfabeto + "\n");
         stringBuffer.append("Estados --> " + "\n" );
-        for(Estado estado : estados){
+        for(EstadoAFN estado : estados){
             stringBuffer.append(" { " + "\n");
             stringBuffer.append("  Nombre -> " + estado.getNombre() + "\n");
             stringBuffer.append("  Es inicial -> " + estado.isInicial() + "\n");
@@ -111,34 +114,9 @@ public class Automata {
     }
 
     public void limpiarEstados(){
-        for(Estado estado: estados){
+        for(EstadoAFN estado: estados){
             estado.setInicial(false);
             estado.setAceptacion(false);
         }
     }
-
-    public String simulacion(String cadena) {
-        String resultado = "";
-        Estado estadoActual = this.darEstadoInicial();
-        if(cadena.isEmpty())
-            resultado += "La cadena \""+cadena+"\" no pertenece al lenguaje L.\n\n";
-        else {
-            for (int i = 0; i < cadena.length(); i++) {
-                Transicion transicion = estadoActual.darTransacion(String.valueOf(cadena.charAt(i)));
-                if (transicion == null) {
-                    estadoActual = null;
-                    break;
-                } else {
-                    resultado += "(" + estadoActual.getNombre() + "," + transicion.getSimbolo() + ") => " + transicion.getEstado().getNombre() + "\n";
-                    estadoActual = transicion.getEstado();
-                }
-            }
-            if (estadoActual != null && estadoActual.isAceptacion())
-                resultado += "La cadena \"" + cadena + "\" pertenece al lenguaje L.\n\n";
-            else
-                resultado += "La cadena \"" + cadena + "\" no pertenece al lenguaje L.\n\n";
-        }
-        return resultado;
-    }
-
 }
