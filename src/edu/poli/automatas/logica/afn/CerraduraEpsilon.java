@@ -25,4 +25,23 @@ public class CerraduraEpsilon {
     public void setEstadosDeArranque(List<EstadoAFN> estadosDeArranque) {
         this.estadosDeArranque = estadosDeArranque;
     }
+
+    public String getNombreEstado(){
+        StringBuffer buffer = new StringBuffer();
+        buffer.append("{");
+        for(int i = 0; i < estadosDeArranque.size() -2 ; i++){
+            buffer.append(estadosDeArranque.get(i).getNombre());
+            buffer.append(",");
+        }
+        buffer.append(estadosDeArranque.get(estadosDeArranque.size()-1));
+        buffer.append("}u");
+        buffer.append("{");
+        for(int i = 0; i < estadosConEpsilon.size() -2 ; i++){
+            buffer.append(estadosConEpsilon.get(i).getNombre());
+            buffer.append(",");
+        }
+        buffer.append(estadosConEpsilon.get(estadosConEpsilon.size()-1));
+        buffer.append("}");
+        return buffer.toString();
+    }
 }

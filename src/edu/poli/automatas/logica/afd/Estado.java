@@ -1,6 +1,8 @@
 package edu.poli.automatas.logica.afd;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -36,7 +38,7 @@ public class Estado {
         this.aceptacion = aceptacion;
     }
 
-    public Set<Transicion> getTransiciones() {
+    public HashSet<Transicion> getTransiciones() {
         return transiciones;
     }
 
@@ -66,6 +68,14 @@ public class Estado {
             }
         }
         return transicionSeleccionada;
+    }
+
+    public List<Transicion> darTransicionesComoLista(){
+        List<Transicion> listaTransiciones = new ArrayList<Transicion>();
+        for(Transicion trans : transiciones) {
+            listaTransiciones.add(trans);
+        }
+        return listaTransiciones;
     }
 
 //    @Override
